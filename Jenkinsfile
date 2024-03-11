@@ -19,14 +19,14 @@ pipeline {
         
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                powershell 'mvn clean package'
             }
         }
-        
+
         stage('Code Coverage') {
             steps {
-                sh 'mvn org.jacoco:jacoco-maven-plugin:prepare-agent install'
-                sh 'mvn org.jacoco:jacoco-maven-plugin:report'
+                powershell 'mvn org.jacoco:jacoco-maven-plugin:prepare-agent install'
+                powershell 'mvn org.jacoco:jacoco-maven-plugin:report'
             }
         }
     }
